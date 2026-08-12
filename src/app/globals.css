@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────
+   LOCKED VISUAL DIRECTION: Midnight Blue + Stars
+   ───────────────────────────────────────────── */
+
+:root {
+  --bg-primary:    #0B1020;
+  --bg-secondary:  #11182A;
+  --bg-elevated:   #161E32;
+  --surface-1:     #11182A;
+
+  --text-primary:   #F2F0EA;
+  --text-secondary: #A7ADBC;
+  --text-muted:     #5E6579;
+
+  --accent:         #7F9BC7;
+  --accent-warm:    #D8C6A0;
+  --accent-dim:     rgba(127, 155, 199, 0.15);
+  --accent-burgund: rgba(127, 155, 199, 0.3);
+  --accent-terra:   #7F9BC7;
+
+  --border:         rgba(127, 155, 199, 0.1);
+  --border-subtle:  rgba(127, 155, 199, 0.06);
+
+  --shadow-card:    0px 4px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lift:    0px 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+/* ─────────────────────────────────────────────
+   BASE
+   ───────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg-primary);
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans), system-ui, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(127, 155, 199, 0.2);
+  color: var(--text-primary);
+}
+
+/* ─────────────────────────────────────────────
+   TYPOGRAPHY
+   ───────────────────────────────────────────── */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* ─────────────────────────────────────────────
+   COMPONENTS
+   ───────────────────────────────────────────── */
+
+/* Card */
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+  border-color: rgba(127, 155, 199, 0.2);
+}
+
+/* Button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent);
+  color: var(--bg-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.55rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.btn-ghost:hover {
+  color: var(--text-secondary);
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+
+/* Section label */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+/* Metric */
+.metric-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+.metric-value {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+/* Section divider */
+.section-divider {
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.35;
+  border: none;
+  margin: 0;
+}
+
+/* Nav */
+.nav-link {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.nav-link:hover {
+  color: var(--text-primary);
+}
+.nav-brand {
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+}
